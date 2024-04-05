@@ -1,0 +1,3 @@
+sampleName,fileName,reference,paired
+10_StEXOHU1,fastq/10_StEXOHU1_R1_001.fastq.gz,hg38,1
+1_LD_UW1,fastq/1_LD_UW1_R1_001.fastq.gz,hg38,1

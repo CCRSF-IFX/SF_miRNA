@@ -1,0 +1,20 @@
+# This file should contain everything to configure the workflow on a global scale.
+# In case of sample based data, it should be complemented by a samples.csv file that contains
+# one row per sample. It can be parsed easily via pandas.
+samples: "config/samples.csv"
+rawpath: "/path/to/rawdata"
+analysispath: "/scratch/ccrsf_scratch/scratch/Analysis/shent2/MariaMerinoNeumann_CS035192_10microRNA_081523"
+projectname: "MariaMerinoNeumann_CS035192_10microRNA_081523"
+adapters: "resource/TruSeq_and_nextera_adapters.fa"
+fastqscreenConf: "resource/fastq_screen_slurm.conf"
+multiqcConf: "resource/config_multiQC.yaml"
+fastqscreenConf_hsa_miRNA: "resource/fastq_screen_hsa_small_RNA_slurm.conf"
+fastqscreenConf_mmu_miRNA: "resource/fastq_screen_mmu_small_RNA_slurm.conf"
+refgen_hsa_miRNA: "/mnt/ccrsf-ifx/RefGenomes/hg38/BOWTIE/hg38_short"
+refgen_mmu_miRNA: "/mnt/ccrsf-ifx/RefGenomes/mm10_miRNA/mm10"
+mirdeep2_hsa_genome: "/mnt/ccrsf-ifx/RefGenomes/hg38/BOWTIE/hg38_ordered_short.fa"
+mirdeep2_mmu_genome: "/mnt/ccrsf-ifx/RefGenomes/mm10_miRNA/mm10.fa"
+mature_hsa_miRNA: "resource/mirbaseV22_mature_human.fa"
+mature_mmu_miRNA: "resource/mirbaseV22_mature_mouse.fa"
+hairpin_hsa_miRNA: "resource/mirbaseV22_hairpin_human.fa"
+hairpin_mmu_miRNA: "resource/mirbaseV22_hairpin_mouse.fa"

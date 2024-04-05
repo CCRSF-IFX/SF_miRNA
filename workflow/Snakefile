@@ -1,0 +1,21 @@
+# The main entry point of miRNA workflow.
+# After configuring, running snakemake -n in a clone of this repository should successfully execute a dry-run of the workflow.
+
+
+#report: "report/workflow.rst"
+
+# Allow users to fix the underlying OS via singularity.
+#singularity: "docker://continuumio/miniconda3"
+
+include: "rules/common.smk" 
+
+rule all:
+    input: expand("Sample_{sample}/{sample}_trimmomatic_complete.txt", sample=samples), expand("Sample_{sample}/{sample}_fastqc_complete.txt", sample=samples), expand("Sample_{sample}/{sample}_fastqscreen_complete.txt", sample=samples), expand("Sample_{sample}/smrna_{sample}_fastqscreen_complete.txt", sample=samples), expand("Sample_{sample}/{sample}_mapper_complete.txt", sample=samples), expand("Sample_{sample}/{sample}_mirdeep2_complete.txt", sample=samples), projectName + "_multiqc.html"
+
+include: "rules/trimmomatic.smk"
+include: "rules/fastqc.smk"
+include: "rules/fastqscreen.smk"
+include: "rules/fastqscreen_smrna.smk"
+include: "rules/mapper.smk"
+include: "rules/mirdeep2.smk"
+include: "rules/multiqc.smk"

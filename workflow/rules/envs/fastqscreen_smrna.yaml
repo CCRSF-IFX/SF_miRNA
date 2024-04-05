@@ -1,0 +1,7 @@
+name: fastqscreen_smrna
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - fastq-screen=0.15.3
