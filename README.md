@@ -54,22 +54,15 @@ conda create -c bioconda -c conda-forge -n snakemake snakemake
 2. **Test the Configuration**:
     Perform a dry-run to validate your setup:
     ```bash
-    snakemake --use-conda --use-singularity -n
+    snakemake --use-singularity --singularity-args '--bind /path/to/bind/in/singularity' --profile config/ -n
     ```
 
-3. **Local Execution**:
-    Execute the workflow on your local machine using `$N` cores:
+3. **Cluster Execution**:
+    For cluster environments (using Slurm), submit the workflow as follows:
     ```bash
-    snakemake --use-conda --use-singularity --cores $N
+    sbatch submit.sh
     ```
-    Here, `$N` represents the number of cores you wish to allocate for the workflow.
-
-4. **Cluster Execution**:
-    For cluster environments, submit the workflow as follows:
-    ```bash
-    snakemake --use-conda --use-singularity --cluster slurm --jobs 100
-    ```
-    Replace `100` with the number of jobs you intend to submit simultaneously. Ensure your cluster environment is correctly configured to handle Snakemake jobs.
+    Edit config/config.yaml to customize the cluster environment.
 
 ## Output
 

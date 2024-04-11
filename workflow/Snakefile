@@ -10,7 +10,7 @@
 include: "rules/common.smk" 
 
 rule all:
-    input: expand("Sample_{sample}/{sample}_trimmomatic_complete.txt", sample=samples), expand("Sample_{sample}/{sample}_fastqc_complete.txt", sample=samples), expand("Sample_{sample}/{sample}_fastqscreen_complete.txt", sample=samples), expand("Sample_{sample}/smrna_{sample}_fastqscreen_complete.txt", sample=samples), expand("Sample_{sample}/{sample}_mapper_complete.txt", sample=samples), expand("Sample_{sample}/{sample}_mirdeep2_complete.txt", sample=samples), projectName + "_multiqc.html"
+    input: expand("Sample_{sample}/{sample}_trimmomatic_complete.txt", sample=samples), expand("Sample_{sample}/{sample}_fastqc_complete.txt", sample=samples), expand("Sample_{sample}/{sample}_fastqscreen_complete.txt", sample=samples), expand("Sample_{sample}/{sample}_fastqscreen_smrna_complete.txt", sample=samples), expand("Sample_{sample}/{sample}_mapper_complete.txt", sample=samples), expand("Sample_{sample}/{sample}_mirdeep2_complete.txt", sample=samples), projectName + "_multiqc.html"
 
 include: "rules/trimmomatic.smk"
 include: "rules/fastqc.smk"

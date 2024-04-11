@@ -1,20 +1,22 @@
-# This file should contain everything to configure the workflow on a global scale.
-# In case of sample based data, it should be complemented by a samples.csv file that contains
-# one row per sample. It can be parsed easily via pandas.
-samples: "config/samples.csv"
-rawpath: "/path/to/rawdata"
-analysispath: "/path/to/analysis"
-projectname: "projectName"
-adapters: "resource/TruSeq_and_nextera_adapters.fa"
-fastqscreenConf: "resource/fastq_screen_slurm.conf"
-multiqcConf: "resource/config_multiQC.yaml"
-fastqscreenConf_hsa_miRNA: "resource/fastq_screen_hsa_small_RNA_slurm.conf"
-fastqscreenConf_mmu_miRNA: "resource/fastq_screen_mmu_small_RNA_slurm.conf"
-refgen_hsa_miRNA: "/path/to/reference/hg38/BOWTIE/index"
-refgen_mmu_miRNA: "/path/to/reference/mm10/BOWTIE/index"
-mirdeep2_hsa_genome: "/path/to/reference/hg38/fasta"
-mirdeep2_mmu_genome: "/path/to/reference/mm10/fasta"
-mature_hsa_miRNA: "resource/mirbaseV22_mature_human.fa"
-mature_mmu_miRNA: "resource/mirbaseV22_mature_mouse.fa"
-hairpin_hsa_miRNA: "resource/mirbaseV22_hairpin_human.fa"
-hairpin_mmu_miRNA: "resource/mirbaseV22_hairpin_mouse.fa"
+cluster-generic-submit-cmd:
+  mkdir -p logs/{rule} &&
+  sbatch
+    --partition={resources.partition}
+    --cpus-per-task={threads}
+    --mem='{resources.mem}'
+    --job-name=smk-{rule}-{wildcards}
+    --output=logs/{rule}/{rule}-{wildcards.tranckingID}-%j.out
+    --no-requeue
+default-resources:
+  - partition=norm
+  - mem='32GB'
+executor: cluster-generic
+max-jobs-per-second: 10
+max-status-checks-per-second: 1
+latency-wait: 600
+jobs: 100
+keep-going: True
+rerun-incomplete: True
+printshellcmds: True
+scheduler: greedy
+use-conda: True
