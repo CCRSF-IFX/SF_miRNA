@@ -1,5 +1,6 @@
 from snakemake.utils import validate
 import pandas as pd
+import pathlib
 
 # this container defines the underlying OS for each job when using the workflow
 # with --use-conda --use-singularity
@@ -20,7 +21,7 @@ projectName = config['projectname']
 fastqscreenConf = config['fastqscreenConf']
 multiqcConf = config['multiqcConf']
 samples = samplepd["sampleName"].to_list()
-shell(f'mkdir -p fastq; ln -sf {rawPath}/*.fastq.gz fastq/')
+shell(f'mkdir -p fastq; ln -f {rawPath}/*.fastq.gz fastq/')
 
 adapters = config['adapters']
 #whitelist = config.whitelist

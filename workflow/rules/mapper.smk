@@ -1,8 +1,8 @@
 def getRefGen(wildcards):
     if samplepd['reference'][wildcards.sample] == 'hg38':
-        return config['refgen_hsa_miRNA']
+        return Path(str(pathlib.PurePath(config['refgen_hsa_miRNA']).parent)).resolve() / pathlib.PurePath(config['refgen_hsa_miRNA']).name
     elif samplepd['reference'][wildcards.sample] == 'mm10':
-        return config['refgen_mmu_miRNA']
+        return Path(str(pathlib.PurePath(config['refgen_mmu_miRNA']).parent)).resolve() / pathlib.PurePath(config['refgen_mmu_miRNA']).name
 
 rule mapper:
     input: R1 = 'Sample_{sample}/{sample}_trimmed_R1.fa'

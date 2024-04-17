@@ -1,0 +1,20 @@
+# This file should contain everything to configure the workflow on a global scale.
+# In case of sample based data, it should be complemented by a samples.csv file that contains
+# one row per sample. It can be parsed easily via pandas.
+samples: "test/config/samples.csv"
+rawpath: "test/fastq"
+analysispath: "."
+projectname: "test"
+adapters: "resource/TruSeq_and_nextera_adapters.fa"
+fastqscreenConf: "test/resource/fastq_screen_slurm.conf"
+multiqcConf: "test/resource/config_multiQC.yaml"
+fastqscreenConf_hsa_miRNA: "test/resource/fastq_screen_hsa_small_RNA_slurm.conf"
+fastqscreenConf_mmu_miRNA: "test/resource/fastq_screen_mmu_small_RNA_slurm.conf"
+refgen_hsa_miRNA: "test/resource/hg38/hg38_chr21"
+refgen_mmu_miRNA: "test/resource/mm10/mm10_chr19"
+mirdeep2_hsa_genome: "test/resource/hg38/hg38_chr21.fa"
+mirdeep2_mmu_genome: "test/resource/mm10/mm10_chr19.fa"
+mature_hsa_miRNA: "resource/mirbaseV22_mature_human.fa"
+mature_mmu_miRNA: "resource/mirbaseV22_mature_mouse.fa"
+hairpin_hsa_miRNA: "resource/mirbaseV22_hairpin_human.fa"
+hairpin_mmu_miRNA: "resource/mirbaseV22_hairpin_mouse.fa"

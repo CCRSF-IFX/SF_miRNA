@@ -62,8 +62,16 @@ conda create -c bioconda -c conda-forge -n snakemake snakemake
     ```bash
     sbatch submit.sh
     ```
-    Edit config/config.yaml to customize the cluster environment.
+    Edit submit.sh and config/config.yaml to customize the cluster environment.
+
+4. **Run the Test Dataset**:
+    Execulte the workflow with a test dataset:
+    ```bash
+    cp test/config/configProject.yaml config/
+    sbatch submitExample.sh
+    ```
+    Copy test/config/configProject.yaml to config/ and sbumit the job to start the workflow.
 
 ## Output
 
-Upon successful execution, the integrated pipeline comprising the two scripts generates a comprehensive set of files, encapsulating both raw and processed data alongside insightful visualizations.
+Upon successful execution, the pipeline generates a html report of known/novel miRNAs and their abundance for each sample. In addition, a MultiQC report is generated for an overview of quality control analysis of all samples.

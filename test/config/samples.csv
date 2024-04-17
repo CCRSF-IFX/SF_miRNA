@@ -1,0 +1,3 @@
+sampleName,fileName,reference,paired
+test00,test/fastq/test00_R1_001.fastq.gz,hg38,1
+test01,test/fastq/test01_R1_001.fastq.gz,hg38,1
