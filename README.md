@@ -75,3 +75,7 @@ conda create -c bioconda -c conda-forge -n snakemake snakemake
 ## Output
 
 Upon successful execution, the pipeline generates a html report of known/novel miRNAs and their abundance for each sample. In addition, a MultiQC report is generated for an overview of quality control analysis of all samples.
+
+
+## Contact
+CCRSF_IFX@nih.gov
